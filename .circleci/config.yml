@@ -23,7 +23,7 @@ jobs:
       - run:
           name: "Run Dagger"
           command: |
-            dagger-cue do build test
+            dagger-cue do build goTest
 
 workflows:
   dagger-workflow:

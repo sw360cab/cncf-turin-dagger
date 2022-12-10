@@ -25,6 +25,7 @@
   before_script:
     - |
       # install dagger-cue
+      apk add --update curl && rm -rf /var/cache/apk/*
       cd /usr/local
       wget -q -O - https://dl.dagger.io/dagger-cue/install.sh | sh
       cd -

@@ -1,0 +1,32 @@
+version: 2.1
+
+only-dagger-branch: &only-dagger-branch
+  filters:
+    branches:
+      only:
+        - dagger-cue
+
+jobs:
+  install-and-run-dagger:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: "20.10.14"
+      - run:
+          name: "Install Dagger"
+          command: |
+            cd /usr/local
+            wget -O - https://dl.dagger.io/dagger/install.sh | sudo sh
+            cd -
+      - run:
+          name: "Run Dagger"
+          command: |
+            dagger do build test
+
+workflows:
+  dagger-workflow:
+    jobs:
+      - install-and-run-dagger:
+          <<: *only-dagger-branch

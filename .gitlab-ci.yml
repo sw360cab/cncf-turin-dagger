@@ -25,10 +25,8 @@
   before_script:
     - |
       # install dagger-cue
-      apt update
-      apt install -y curl
       cd /usr/local
-      curl -L https://dl.dagger.io/dagger-cue/install.sh | sh
+      wget -q -O - https://dl.dagger.io/dagger-cue/install.sh | sh
       cd -
 
       dagger-cue version

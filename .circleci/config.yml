@@ -18,7 +18,8 @@ jobs:
           name: "Install Dagger"
           command: |
             cd /usr/local
-            wget -O - https://dl.dagger.io/dagger/install.sh | sudo sh
+            curl -L https://dl.dagger.io/dagger-cue/install.sh | sh
+            ln -s bin/dagger-cue bin/dagger
             cd -
       - run:
           name: "Run Dagger"

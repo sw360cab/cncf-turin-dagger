@@ -19,12 +19,11 @@ jobs:
           command: |
             cd /usr/local
             curl -L https://dl.dagger.io/dagger-cue/install.sh | sudo sh
-            sudo ln -s bin/dagger-cue bin/dagger
             cd -
       - run:
           name: "Run Dagger"
           command: |
-            dagger do build test
+            dagger-cue do build test
 
 workflows:
   dagger-workflow:

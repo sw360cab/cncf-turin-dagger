@@ -26,7 +26,7 @@
     - |
       # install dagger-cue
       cd /usr/local
-      curl -L https://dl.dagger.io/dagger-cue/install.sh | sudo sh
+      curl -L https://dl.dagger.io/dagger-cue/install.sh | sh
       cd -
 
       dagger-cue version

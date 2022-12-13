@@ -23,22 +23,20 @@ func build(ctx context.Context) error {
 		return err
 	}
 	defer client.Close()
+	path := "build/"
 
 	// get reference to the local project
 	src := client.Host().Directory(".")
 
 	// get `golang` image
-	golang := client.Container().From("golang:latest")
-
-	// mount cloned repository into `golang` image
-	golang = golang.WithMountedDirectory("/src", src).WithWorkdir("/src")
-
-	// define the application build command
-	path := "build/"
-	golangBuild := golang.WithExec([]string{"go", "build", "-o", path})
+	golang := client.Container().From("golang:latest").
+		WithMountedDirectory("/src", src).
+		WithWorkdir("/src")
 
 	// get reference to build output directory in container
-	output := golangBuild.Directory(path)
+	output := golang.
+		WithExec([]string{"go", "build", "-o", path}).
+		Directory(path)
 
 	// write contents of container build/ directory to the host
 	_, err = output.Export(ctx, path)

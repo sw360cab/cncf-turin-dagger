@@ -9,7 +9,7 @@ import (
 dagger.#Plan & {
 	actions: {
 		getCode: core.#Source & {
-				path: "."
+			path: "."
 		}
 
 		build: {

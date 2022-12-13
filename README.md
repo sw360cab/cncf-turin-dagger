@@ -6,20 +6,20 @@
 
 ## update project
 
-    dagger do build
+    dagger-cue project update
 
 ## Ready to GO!
 
-    dagger do build
+    dagger-cue do build
 
 ### detailed log
 
-    dagger do build --log-format plain
+    dagger-cue do build --log-format plain
 
 ### no cache
 
-    dagger do build --log-format plain --no-cache
+    dagger-cue do build --log-format plain --no-cache
 
 ### subaction
 
-    dagger do build goTest
+    dagger-cue do build goTest

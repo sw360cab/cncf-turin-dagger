@@ -1,8 +1,7 @@
 name: dagger
 on:
   push:
-    branches: 
-      - step-ci
+    branches: [master, step-ci]
 
 jobs:
   build:

@@ -2,7 +2,6 @@ name: dagger
 on:
   push:
     branches:
-      - master
       - step-ci
 
 jobs:
